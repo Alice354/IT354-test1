@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Progress Bar</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<style>
+			@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+
+			body 
+			{
+				font-family: 'Montserrat', sans-serif;
+				background: #f1f1f1;
+			}
+
+			.main-box
+			{
+				display: flex;
+				background: #000;
+				margin: 70px auto 70px auto;
+				padding:0;
+				width: 991px;
+			}
+
+			.box
+			{
+
+			height: 322px;
+			padding:15px;
+			border-right: 1px solid white;
+			webkit-transition: 0.8s;
+			-o-transition: 0.8s;
+			transition: 0.8s;
+			position: relative;
+			overflow: hidden;
+			list-style: none;
+			}
+
+			.detail
+			{
+				width: 85%;
+				height: 100%;
+				position: absolute;
+				right: 0;
+				top:0;
+				background: white;
+				color:black;
+				opacity: 0;
+				padding:30px;
+				box-sizing:border-box;
+				webkit-transition: 0.8s;
+				-o-transition: 0.8s;
+				transition: 0.8s;
+				-webkit-transform: translateY(100%);
+				transform: translateY(100%);
+			}
+
+			.box.active
+			{
+				width: 70% !important;
+			}
+
+			.box.active .detail
+			{
+				opacity: 1;
+				-webkit-transition-delay: 0.6s;
+				-moz-transition-delay: 0.6s;
+				-o-transition-delay: 0.6s;
+				transition-delay: 0.6s;
+				transform: none;
+			}
+
+			.box span {
+				writing-mode: vertical-rl;
+				font-size: 20px;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #fff;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				width: 40px;
+				transform: rotate(180deg);
+				font-weight: 400;
+				cursor: pointer;
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			
+			}
+
+			.box.active span 
+			{
+				left:25px;
+				right:auto;
+				margin:0;
+			font-weight:600
+			}
+
+			p 
+			{
+				line-height: 23px;
+			}
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			var getslide = $(".main-box li").length -1; //5 -1 =4 slides
+			var slidecal = 30/getslide +'%'; //30:4 = ~7% //how much space to allocate for each slide
+			$('.box').css({"width": slidecal}); //set new width of each box to ~7%
+			$('.box').click(function() {
+				//current active box should be replaced by the clicked box and made active
+				$('.box').removeClass('active')
+				$(this).addClass('active')
+			});
+		});
+	</script>
+</head>
+<body>
+<ul class="main-box">
+    <li class="box active"><span>Slide One</span>
+
+        <div class="detail active">
+			<p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+			<p>
+			
+		   
+		   The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+			</p>
+        </div>
+    </li>
+    <li class="box"><span>Slide Two</span>
+        <div class="detail">
+          <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+			<p>
+			
+		   
+		   The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+			</p>
+        </div>
+    </li>
+    <li class="box"><span>Slide Three</span>
+
+        <div class="detail">
+              <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+			<p>
+			
+		   
+		   The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+			</p>
+        </div>
+    </li>
+    <li class="box"><span>Slide Four</span>
+        <div class="detail">
+          <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+			<p>
+			
+		   
+		   The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+			</p>
+        </div>
+    </li>
+
+    <li class="box"><span>Slide Five</span>
+        <div class="detail">
+           <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+			<p>
+			
+		   
+		   The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+			</p>
+        </div>
+    </li>
+</ul>
+
+
+</body>
+</html>

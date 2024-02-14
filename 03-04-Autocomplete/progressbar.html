@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Progress Bar</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+      $(".Loading span").animate({  
+        width: $(".Loading span").data("charge") + '%'}, 1000); //takes 2 params //retrieves charge data and display %
+        var getCounter = parseInt($('.container i').text());
+        var myCounter = setInterval(function(){
+          if(getCounter != 101){
+            $(".container i").text(getCounter++ + '%') //sets the value of getCounter
+          }
+          else{
+            clearInterval(myCounter);
+            $(".container i").text('Finished')
+          };
+        }, 10); //set interval takes 2 params
+    });
+  </script>
+	
+</head>
+
+<body>
+    <div class="container">	
+		<i>0%</i>	
+		<div class="Loading">
+			<span data-charge='100'></span>
+		</div>
+</body>
+</html>
